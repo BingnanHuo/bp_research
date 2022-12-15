@@ -1,0 +1,11 @@
+dist/ 
+build/ 
+dist/include/  
+test_img/
+NeuroFace_Open_Access_Data/
+MEEI_Standard_Set/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+*.pickle
