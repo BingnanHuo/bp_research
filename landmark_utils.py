@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 from GetLandmarks import GetLandmarks
 
 def to_gemma_landmarks(input_landmarks):
-    #function to change from 61 pts to 51 pts gemma model
+    #function to change from 68 pts to 51 pts gemma model
     if input_landmarks.shape == (51,2):
         return input_landmarks
     

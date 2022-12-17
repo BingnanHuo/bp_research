@@ -8,16 +8,17 @@ from GetLandmarks import GetLandmarks
 #from GetLandmarks_hires_gray import GetLandmarks 
 #from GetLandmarks_hires_color import GetLandmarks 
 
-from landmark_utils import rotate_image, rotate_landmarks
+from landmark_utils import rotate_image, rotate_landmarks, to_gemma_landmarks
 from matrix_utils import  arr_info
 from sklearn.metrics import mean_squared_error
 
 class LandmarkTester:
-    def __init__(self, input_image, model_to_use="MEE", resolution=200, colored=False):
+    def __init__(self, input_image, model_to_use="MEE", resolution=200, colored=False, gemma_lm=True):
         super().__init__()
        
         self._image = input_image
         self._model = model_to_use
+        self._gemma_lm = gemma_lm
 
         start_time = time.time()
         self._og_landmarks = GetLandmarks(self._image, model_to_use, resolution, colored)._shape
@@ -151,10 +152,13 @@ class LandmarkTester:
     def single_rotation(self, angle):
         rotated = rotate_image(self._image, self._rot_center, angle)
         rotated_landmarks = GetLandmarks(rotated, self._model)._shape
-        #self._test_count += 1
+        
         #print("Roughly {} tests have completed!".format(self._test_count))
         print("One test has completed...")
-        return rotate_landmarks(rotated_landmarks, self._rot_center, -angle)    
+        res_landmarks = rotate_landmarks(rotated_landmarks, self._rot_center, -angle)
+        if self._gemma_lm is True:
+            return to_gemma_landmarks(res_landmarks)
+        return res_landmarks
     
     
     # Changes the intensity of one image
@@ -170,7 +174,10 @@ class LandmarkTester:
         # noise can be an array (actual noise) or a int (total intensity shift)
         new_img = (np.clip(np.int16(self._image) + added_noise, 0, 255)).astype(np.uint8)
         print("One test has completed...")
-        return GetLandmarks(new_img, self._model)._shape
+        res_landmarks = GetLandmarks(new_img, self._model)._shape
+        if self._gemma_lm is True:
+            return to_gemma_landmarks(res_landmarks)
+        return res_landmarks
         
     
     def combined_augs(self):
@@ -188,6 +195,8 @@ class LandmarkTester:
         rot_landmarks = GetLandmarks(rotated, self._model)._shape
         res_landmarks = rotate_landmarks(rot_landmarks, self._rot_center, -angle)
         print("One test has completed...")
+        if self._gemma_lm is True:
+            return to_gemma_landmarks(res_landmarks)
         return res_landmarks
         
         
