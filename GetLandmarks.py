@@ -14,14 +14,17 @@ from dlib import rectangle
 import cv2
 import numpy as np
 from pathlib import Path
+from landmark_utils import to_gemma_landmarks
 
 
 class GetLandmarks:
    
-    def __init__(self, image, ModelName="MEE", resolution=200, colored=False):
+    def __init__(self, image, ModelName="MEE", resolution=200, colored=False, gemma_lm=True):
         super(GetLandmarks, self).__init__()
         self._image = image
         self._ModelName  = ModelName
+        self._gemma_lm = gemma_lm
+        
         self._resolution = resolution
         self._colored = colored
         self._shape = np.zeros((68,2),dtype=np.int16)
@@ -29,6 +32,8 @@ class GetLandmarks:
         self._righteye = [-1,-1,-1]
         self._boundingbox = [-1,-1,-1,-1]
         self.getlandmarks()
+        if self._gemma_lm is True:
+            self._shape = to_gemma_landmarks(self._shape)
 
     
     def getlandmarks(self):

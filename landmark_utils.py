@@ -2,14 +2,14 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import mean_squared_error
-from GetLandmarks import GetLandmarks
+#from GetLandmarks import GetLandmarks
 
 def to_gemma_landmarks(input_landmarks):
     #function to change from 68 pts to 51 pts gemma model
     if input_landmarks.shape == (51,2):
         return input_landmarks
     
-    gemma_landmarks = np.zeros((51,2),dtype=int)
+    gemma_landmarks = np.zeros((51,2),dtype=np.int16)
     gemma_landmarks[0] = input_landmarks[17]
     gemma_landmarks[1] = input_landmarks[18]
     gemma_landmarks[2] = input_landmarks[19]
@@ -85,9 +85,9 @@ def rotate_landmarks(arr, rot_center, rot_angle, scale=1):
     return arr_rotated
 
 # Display landmarks on top of patient image
-def vis_landmarks(im, og_landmarks=None, which_points=np.arange(68), figsize=(4,3), title='Image', show_ticks = True, **kwargs):
-    if og_landmarks is None:
-        og_landmarks = GetLandmarks(im)._shape
+def vis_landmarks(im, og_landmarks, which_points=np.arange(68), figsize=(4,3), title='Image', show_ticks = True, **kwargs):
+    #if og_landmarks is None:
+    #    og_landmarks = GetLandmarks(im)._shape
     
     f, ax = plt.subplots(1,1, figsize=figsize)
     ax.set_title(title)

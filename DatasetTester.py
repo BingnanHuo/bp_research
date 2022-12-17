@@ -1,5 +1,10 @@
-import csv
+"""
+Created Summer 2022
 
+@author: Bingnan Huo (Nick) -- bh006 at bucknell.edu
+"""
+
+import csv
 from pathlib import Path
 
 import cv2

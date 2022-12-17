@@ -1,3 +1,9 @@
+"""
+Created Summer 2022
+
+@author: Bingnan Huo (Nick) -- bh006 at bucknell.edu
+"""
+
 import numpy as np
 import time
 import multiprocess as mp
