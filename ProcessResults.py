@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created Summer 2022
+
+@author: Bingnan Huo (Nick) -- bh006 at bucknell.edu
+"""
+
 from turtle import distance
 import numpy as np
 import csv
@@ -10,11 +17,13 @@ class ProcessResults:
     def __init__(self, input_landmark, mode=None):
         super().__init__()
         if mode is None:
+            # if provided a GetLandmark object
             self._model = input_landmark._ModelName
             self._landmarks = to_gemma_landmarks(input_landmark._shape)
             self._lefteye = input_landmark._lefteye
             self._righteye = input_landmark._righteye
         else:
+            # if provided just a (68,2) np array
             self._landmarks = to_gemma_landmarks(input_landmark)
             self._lefteye = None
             self._righteye = None

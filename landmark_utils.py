@@ -2,10 +2,13 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import mean_squared_error
-from GetLandmarks_og import GetLandmarks
+from GetLandmarks import GetLandmarks
 
 def to_gemma_landmarks(input_landmarks):
     #function to change from 61 pts to 51 pts gemma model
+    if input_landmarks.shape == (51,2):
+        return input_landmarks
+    
     gemma_landmarks = np.zeros((51,2),dtype=int)
     gemma_landmarks[0] = input_landmarks[17]
     gemma_landmarks[1] = input_landmarks[18]
