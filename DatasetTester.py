@@ -20,6 +20,7 @@ from sklearn.metrics import mean_squared_error
 
 class DatasetIntegrator:
     def __init__(self, dataset_path, model_to_use="MEE"):
+        # This only loads and tests the TNF dataset
         super().__init__()
         self._dataset_path = Path(dataset_path)
 

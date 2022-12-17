@@ -10,9 +10,6 @@ import multiprocess as mp
 #import imgaug as ia
 
 from GetLandmarks import GetLandmarks 
-#from GetLandmarks_og_color import GetLandmarks
-#from GetLandmarks_hires_gray import GetLandmarks 
-#from GetLandmarks_hires_color import GetLandmarks 
 
 from landmark_utils import rotate_image, rotate_landmarks, to_gemma_landmarks
 from matrix_utils import  arr_info
