@@ -6,7 +6,7 @@ I attempted to create a system that can automatically grade the severity of faci
 My project also heavily relies on Emotrics, which is a machine-learning-based facial landmark predictor that allows us to extract facial keypoint from images.
 More information about the project can be found in the [project report](https://docs.google.com/document/d/1ozB-bke3uC8R5cgGGeYMG5l7_y9zn0PbHrpjxoZ-Jcc/edit?usp=sharing). 
 
-To recreate the environment I used for this project, get [bp.yml](https://github.com/BingnanHuo/bp_research/blob/main/bp.yml) and run the following command:
+To recreate the environment I used for this project, get [bp.yml](https://github.com/BingnanHuo/bp_research/blob/main/conda_environments/bp.yml) in the **conda_environments** folder and run the following command:
 
     conda env create -f bp.yml
 
