@@ -12,7 +12,7 @@ import multiprocess as mp
 import numpy as np
 import pandas as pd
 
-from landmark_utils import rotate_image, rotate_landmarks
+from landmark_utils import rotate_image, rotate_landmarks, to_gemma_landmarks
 from matrix_utils import arr_info, normalize_ubyte, preprocess_img
 
 #from Emotrics_GetLandmarks_new import GetLandmarks as GetLandmarks_new
@@ -135,7 +135,7 @@ class DatasetTester:
                     idx = np.where(frames==f)[0][0]
                     img_path = self._images_path / '_'.join((p,'02',t,'color.avi',str(f)+'.jpg'))
 
-                    patients[p][t][f]['landmarks_gt'] = landmarks[idx]
+                    patients[p][t][f]['landmarks_gt'] = to_gemma_landmarks(landmarks[idx])
                     patients[p][t][f]['bbox'] = bboxes[idx]
                     patients[p][t][f]['image'] = cv2.imread(str(img_path))
                     patients[p][t][f]['landmarks_pred'] = None
