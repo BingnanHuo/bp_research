@@ -58,21 +58,16 @@ These are the most important studies we used in our work:
 
 - Gemma Parra-Dominguez’s study [[5]](#References) is fundamental to our work. We are mainly incorporating his proposed framework and adding the severity grading functionality in the final step. Gemma proposes to use 51 landmark points instead of 68 as the jaw line is not the main concern for evaluating illness or severity grading of facial palsy. Gemma also defined a set of distances and features, found through an ML program. Gemma’s work used a Multilayer Perceptron Network to differentiate between healthy & ill images.
 
-## Technologies Used :gear:
+## Packages Used
 
 We utilize a variety of technologies in our research project, including, but not limited to, the following:
 
-- Python
-- OpenCV
-- Pandas
-- NumPy
-- SciPy
-- Dlib
-- Scikit-learn
-- Matplotlib
-- Jupyter Notebook
-- Git
-- Github
+- Image Processing: OpenCV, scikit-image, Dlib
+- Data Processing: pandas
+- Machine Learning: scikit-learn
+- Visualizations: Matplotlib, Jupyter Notebook
+- Miscs: NumPy, SciPy
+
 
 ## References
 
