@@ -62,11 +62,11 @@ These are the most important studies we used in our work:
 
 We utilize a variety of technologies in our research project, including, but not limited to, the following:
 
-- Image Processing: OpenCV, scikit-image, Dlib
-- Data Processing: pandas
-- Machine Learning: scikit-learn
-- Visualizations: Matplotlib, Jupyter Notebook
-- Miscs: NumPy, SciPy
+- **Image Processing**: OpenCV, scikit-image, Dlib
+- **Data Processing**: pandas
+- **Machine Learning**: scikit-learn
+- **Visualizations**: Matplotlib, Jupyter Notebook
+- **Miscs**: NumPy, SciPy
 
 
 ## References
